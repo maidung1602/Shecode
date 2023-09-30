@@ -5,30 +5,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "school")
-public class School {
+@Table(name = "blog")
+public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "code")
-    private String code;
-
-    @Column(name = "name")
-    private String name;
-
     @Column(name = "status")
-    private boolean status = true;
+    private Boolean status = true;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "caption")
+    private String caption;
 
+    @Column(name = "content")
+    private String content;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private  User user;
 }
