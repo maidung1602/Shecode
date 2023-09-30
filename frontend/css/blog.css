@@ -1,0 +1,204 @@
+.wrapper {
+    padding: 7em 0 7em 0;
+}
+
+    .wrapper > .inner {
+        position: relative;
+        z-index: 2;
+    }
+	.container {
+		margin: 0 auto;
+		max-width: calc(100% - 100px);
+		width: 1200px;
+	}
+
+.wrapper.style3 {
+    position: relative;
+    text-shadow: 1px 1px 0 #fff;
+    background-color: #fff;
+    background-image: url("images/bg03.png"), url("images/bg02.png");
+    background-repeat: no-repeat, repeat;
+    background-size: 100% 15em, auto auto;
+    background-position: top center, top left;
+}
+
+.box.article-list article {
+    border-bottom: solid 1px #dbdbdb;
+    margin: 0 0 2.75em 0;
+    padding: 0 0 2.75em 0;
+}
+
+    .box.article-list article:last-child {
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .box.excerpt {
+		position: relative;
+		overflow: hidden;
+	}
+
+	h2 {
+		font-size: 2em;
+		margin: 0 0 1.5em 0;
+		line-height: 1em;
+	}
+
+		h2.icon {
+			line-height: 48px;
+		}
+
+			h2.icon:before {
+				position: relative;
+				top: 0.05em;
+				margin-right: 0.5em;
+				opacity: 0.25;
+			}
+
+            .date {
+                display: block;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 0.065em;
+                font-size: 0.9em;
+                color: #696969;
+                margin: 0 0 0.25em 0;
+            }
+            .row > .col-12-medium {
+                width: 100%;
+            }
+            .row > .col-8 {
+                width: 66.66667%;
+            }
+            .row > .col-4 {
+                width: 33.33333%;
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+                align-items: stretch;
+            }
+        
+                .row > * {
+                    box-sizing: border-box;
+                }
+                article, aside, details, figcaption, figure,
+                footer, header, hgroup, menu, nav, section {
+                    display: block;
+                	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
+
+                    @media screen and (max-width: 1280px) {
+
+                        .container {
+                            width: 100%;
+                        }
+            
+                    }
+            
+                    @media screen and (max-width: 980px) {
+            
+                        .container {
+                            width: 100%;
+                        }
+            
+                    }
+            
+                    @media screen and (max-width: 736px) {
+            
+                        .container {
+                            width: 100%;
+                            max-width: 100%;
+                        }
+            
+                    }
+
+                    .box.article-list article {
+                        border-bottom: solid 1px #dbdbdb;
+                        margin: 0 0 2.75em 0;
+                        padding: 0 0 2.75em 0;
+                    }
+                
+                        .box.article-list article:last-child {
+                            border-bottom: 0;
+                            margin-bottom: 0;
+                            padding-bottom: 0;
+                        }
+                        .box.spotlight {
+                            margin-top: 2em;
+                        }
+
+                        .icon {
+                            text-decoration: none;
+                            text-decoration: none;
+                        }
+                    
+                            .icon:before {
+                                -moz-osx-font-smoothing: grayscale;
+                                -webkit-font-smoothing: antialiased;
+                                display: inline-block;
+                                font-style: normal;
+                                font-variant: normal;
+                                text-rendering: auto;
+                                line-height: 1;
+                                text-transform: none !important;
+                                font-family: 'Font Awesome 5 Free';
+                                font-weight: 400;
+                            }
+                    
+                            .icon.solid:before {
+                                font-weight: 900;
+                            }
+                    
+                            .icon.brands:before {
+                                font-family: 'Font Awesome 5 Brands';
+                            }
+                    
+                            .icon > .label {
+                                display: none;
+                            }
+
+                            .image.featured {
+                                display: block;
+                                width: 100%;
+                                margin: 0 0 2.5em 0;
+                            }
+                            .image.left {
+                                float: left;
+                                margin: 0 2em 2em 0;
+                            }
+
+                            .button {
+                                background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)), url("images/bg02.png");
+                                background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)), url("images/bg02.png");
+                                background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)), url("images/bg02.png");
+                                background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)), url("images/bg02.png");
+                                -moz-transition: background-color 0.2s ease-in-out;
+                                -webkit-transition: background-color 0.2s ease-in-out;
+                                -ms-transition: background-color 0.2s ease-in-out;
+                                transition: background-color 0.2s ease-in-out;
+                                -webkit-appearance: none;
+                                position: relative;
+                                display: inline-block;
+                                background-color: #4091bf;
+                                border-radius: 8px;
+                                box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.35), inset 0px 2px 1px 0px rgba(255, 255, 255, 0.35);
+                                text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+                                color: #fff !important;
+                                text-decoration: none;
+                                text-transform: uppercase;
+                                font-weight: 800;
+                                font-size: 0.95em;
+                                letter-spacing: 0.075em;
+                                padding: 1em 2em;
+                                outline: 0;
+                                border: 0;
+                                white-space: nowrap;
+                                cursor: pointer;
+                            }
