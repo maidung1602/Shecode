@@ -1,0 +1,124 @@
+.vote .fa-solid:first-child {
+    margin-left: 20px;
+}
+
+.item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.item span {
+    margin-left: 20px;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 0px solid #ccc;
+    
+}
+
+.accept i {
+    cursor: pointer;
+}
+
+.accept button {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 0px solid #ccc;
+}
+
+.accept button:hover {
+    background-color: #ccc;
+}
+
+.color-active {
+    color: red;
+}
+
+.warning {
+    font-size: 20px;
+    color: red;
+    margin: 10px 0px;
+    padding: 16px 32px;
+    border-radius: 20px;
+    border: 1px solid red;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+.cmt h3 {
+    margin-top: 2%;
+    margin-left: 27%;
+    font-family: 'Manrope', sans-serif;
+    font-weight: bold
+}
+
+.cmt .card {
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 40px
+}
+
+.cmt img {
+    border-radius: 10px;
+    padding-right: 5px;
+    width: 60px;
+    height: 55px
+}
+
+.cmt img:hover {
+    cursor: pointer
+}
+
+.cmt .round .align-self-start {
+    border-radius: 100%;
+    width: 45px;
+    height: 40px
+}
+
+.cmt .media .comment {
+    background: #F4F4F4;
+    border: none;
+    border-radius: 10px
+}
+
+.cmt h6.user {
+    color: #5C5C5C;
+    font-size: 15px !important;
+    padding-left: 15px !important;
+    margin-bottom: 0
+}
+
+.cmt h6.user:hover {
+    cursor: pointer;
+    text-decoration: underline
+}
+
+.cmt p.text {
+    margin-bottom: 0;
+    color: #8A8A8A !important;
+    font-size: 14px
+}
+
+.cmt .ml-auto {
+    margin-right: 10px
+}
+
+.cmt p .reply {
+    color: #5C5C5C;
+    font-size: 15px
+}
+
+@media screen and (min-width: 576px) {
+    .comment {
+        width: 470px !important
+    }
+}

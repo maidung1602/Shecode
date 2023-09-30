@@ -38,22 +38,34 @@ public class UniversityController {
     @GetMapping("/universities")
     public String getUniversity(Model model) {
         ModelMapper mapper = new ModelMapper();
-        // Thay đổi đoạn mã này để trả về thông tin của các trường đại học
-        University university = universityService.getUniversityById(1);
-        model.addAttribute("university", university);
-        model.addAttribute("voteAve", voteRepository.calculateStarByUniversity(1));
-        model.addAttribute("vote", voteRepository.calculateStarByUniversityAndVoteType(1));
-
-        List<Comment> ListComment = commentRepository.findCommentByUniversity(1);
-        List<CommentDTO> listCommentDTO = new ArrayList<>();
-        ListComment.stream().forEach(comment -> {
-            CommentDTO commentDTO = mapper.map(comment, CommentDTO.class);
-            commentDTO.setSubComment(commentRepository.findSubComment(commentDTO.getId()));
-            listCommentDTO.add(commentDTO);
-        });
-        model.addAttribute("comment", listCommentDTO);
-
-
+//        University university = universityService.getUniversityById(1);
+//        model.addAttribute("university", university);
+//        model.addAttribute("voteAve", voteRepository.calculateStarByUniversity(1));
+//        model.addAttribute("vote", voteRepository.calculateStarByUniversityAndVoteType(1));
+//
+//        List<Comment> ListComment = commentRepository.findCommentByUniversity(1);
+//        List<CommentDTO> listCommentDTO = new ArrayList<>();
+//        ListComment.stream().forEach(comment -> {
+//            CommentDTO commentDTO = mapper.map(comment, CommentDTO.class);
+//            commentDTO.setSubComment(commentRepository.findSubComment(commentDTO.getId()));
+//            listCommentDTO.add(commentDTO);
+//        });
+//        model.addAttribute("comment", listCommentDTO);
+//
+//
+//        List<University> ListUniversity = universityRepository.findAll();
+//        List<UniversityDTO> listUniversityDTO = new ArrayList<>();
+//        ListUniversity.stream().forEach(uni -> {
+//            UniversityDTO universityDTO = mapper.map(uni, UniversityDTO.class);
+//            universityDTO.setVoteAve(voteRepository.calculateStarByUniversity(uni.getId()));
+//            listUniversityDTO.add(universityDTO);
+//        });
+//        model.addAttribute("listUniversity", listUniversityDTO);
+//
+//        List<Blog> ListBlog = blogRepository.findAll();
+//        model.addAttribute("ListBlog", ListBlog);
+//        Blog blog = blogRepository.getById(2);
+//        model.addAttribute("ListBlog", ListBlog);
         List<University> ListUniversity = universityRepository.findAll();
         List<UniversityDTO> listUniversityDTO = new ArrayList<>();
         ListUniversity.stream().forEach(uni -> {
@@ -62,12 +74,11 @@ public class UniversityController {
             listUniversityDTO.add(universityDTO);
         });
         model.addAttribute("listUniversity", listUniversityDTO);
+        return "review";
+    }
 
-        List<Blog> ListBlog = blogRepository.findAll();
-        model.addAttribute("ListBlog", ListBlog);
-        Blog blog = blogRepository.getById(2);
-        model.addAttribute("ListBlog", ListBlog);
-
-        return "index";
+    @GetMapping("/university-details")
+    public String getUniversityDetails(Model model) {
+        return "review-detail";
     }
 }

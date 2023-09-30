@@ -15,6 +15,8 @@ public class UniversityDTO {
 
     private String avatarUrl;
 
+    private String description;
+
     private Double voteAve;
 
 }
