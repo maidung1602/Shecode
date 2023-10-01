@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +27,16 @@ public class Blog {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "preview")
+    private String preview;
+
+    @Column(name = "img_url")
+    private String imgUrl;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private  User user;
+    private User user;
+
+    @Column(name = "create_at")
+    private Timestamp createAt = Timestamp.valueOf(LocalDateTime.now());
 }
