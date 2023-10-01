@@ -17,14 +17,18 @@ import java.io.IOException;
 @Slf4j
 @Controller
 public class LoginController {
-    public static final String INDEX = "index";
     @Autowired
     private UserService userService;
+
+    @GetMapping("/")
+    public String home(){
+        return "redirect:/universities";
+    }
 
     @GetMapping("/login-google")
     public String userLoginGoogle(@RequestParam String code, Model model, HttpSession session) throws IOException {
         if (code == null || code.isEmpty()) {
-            return INDEX;
+            return "redirect:/universities";
         } else {
             String accessToken = GoogleUtils.getToken(code);
             GooglePojo googlePojo = GoogleUtils.getUserInfo(accessToken);
@@ -32,7 +36,7 @@ public class LoginController {
                 User user = userService.registerAccountFromGoogle(googlePojo);
                 session.setAttribute("user", user);
                 log.info("User: {}", user);
-                return INDEX;
+                return "redirect:/universities";
             } else {
                 User user = userService.findUserByEmail(googlePojo.getEmail());
 //                if (!user.getStatus()) {
@@ -40,8 +44,7 @@ public class LoginController {
 //                    return "login";
 //                }
                 session.setAttribute("user", user);
-                System.out.println(user);
-                return INDEX;
+                return "redirect:/universities";
             }
 
         }
@@ -49,6 +52,6 @@ public class LoginController {
     @GetMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("user");
-        return "index";
+        return "redirect:/universities";
     }
 }

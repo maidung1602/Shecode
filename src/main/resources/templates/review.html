@@ -14,6 +14,9 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+        <script src="https://kit.fontawesome.com/244ff4b41a.js" crossorigin="anonymous"></script>
+
+
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
                         
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -50,25 +53,32 @@ https://templatemo.com/tm-590-topic-listing
                         <span class="navbar-toggler-icon"></span>
                     </button>
     
-                    <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 282px;">
+                    <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 226px;">
                         <ul class="navbar-nav ms-lg-5 me-lg-auto">
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="index.html#section_1">Home</a>
+                                <a style="font-size: 18px; margin: 6px; padding-right: 40px" class="nav-link click-scroll" href="/universities">Home</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="index.html#section_2">Blogs</a>
+                                <a style="font-size: 18px; margin: 6px; padding-right: 40px" class="nav-link click-scroll" href="#">Blogs</a>
                             </li>
     
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="index.html#section_3">Contact</a>
+                                <a style="font-size: 18px; margin: 6px" class="nav-link click-scroll" href="#">Contact</a>
                             </li>
 
                         </ul>
 
                         <div class="d-none d-lg-block">
-                            <button type="submit" class="form-control">Login<img src="https://colorlib.com/etc/lf/Login_v9/images/icons/icon-google.png" alt="alt"/></button>
-<!--                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
+                            <button th:if="${session.user==null}" style="height: 46px; background-color: #80D0C7" type="submit" class="form-control"><a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
+                                        &client_id=570524258444-ridflrjec1qvuq3oidpn67cc1gm3t8i6.apps.googleusercontent.com&approval_prompt=force" class="btn btn-soft-primary">Login   <img width="20px" src="https://colorlib.com/etc/lf/Login_v9/images/icons/icon-google.png" alt="alt"/></a></button>
+                            <div style="display: flex">
+                                <button th:if="${session.user!=null}"  type="button" class="btn btn-pills btn-soft-primary dropdown-toggle p-0"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                        th:src="@{${session.user.avatarUrl}}" width="44px" class="avatar avatar-ex-small rounded-circle" alt="">
+                                </button>
+                                <button th:if="${session.user!=null}" type="submit" class="form-control" onclick="window.location.href='/logout'" style="background-color: #80D0C7">Logout</button>
+                            </div>
                         </div>
 
                     </div>
@@ -82,22 +92,20 @@ https://templatemo.com/tm-590-topic-listing
 
 <!--                        <li class="breadcrumb-item active" aria-current="page">Topics Listing</li>-->
 <!--                    </ol>-->
-                    <div class="row">
+                    <div class="row" style="margin-top: 60px">
 
                         <div class="col-lg-8 col-12 mx-auto">
                             <h1 class="text-white text-center">Bạn muốn tìm kiếm gì nhỉ</h1>
 
                             <h6 class="text-center">review trường đại học phải gọi là đỉnk kout</h6>
 
-                            <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                            <form action="search" method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text bi-search" id="basic-addon1">
                                         
                                     </span>
-
                                     <input name="keyword" type="search" class="form-control" id="keyword" placeholder="NEU, HUST, FPT, ..." aria-label="Search">
-
-                                    <button type="submit" class="form-control">Search</button>
+                                        <button type="submit" class="form-control">Search</button>
                                 </div>
                             </form>
                         </div>
@@ -130,7 +138,7 @@ https://templatemo.com/tm-590-topic-listing
     
 <!--                                                <p class="mb-0">Topic Listing includes home, listing, detail and contact pages. Feel free to modify this template for your custom websites.</p>-->
                                                 <p class="mb-0" th:text="${uni.description}"></p>
-                                                <a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">Xem thêm</a>
+                                                <a th:href="@{university-details?id={id}(id=${uni.id})}" class="btn custom-btn mt-3 mt-lg-4">Xem thêm</a>
                                             </div>
     
                                             <button class="col-2" style="border-radius: 20px; border: none;">

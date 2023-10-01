@@ -15,12 +15,20 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-                        
-        <link href="../static/css/css/bootstrap.min.css" rel="stylesheet">
-
-        <link href="../static/css/css/bootstrap-icons.css" rel="stylesheet">
-        <link rel="stylesheet" href="../static/css/css/review-detail.css">
-        <link href="../static/css/css/templatemo-topic-listing.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/244ff4b41a.js" crossorigin="anonymous"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/review-detail.css">
+        <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            /*.rating {*/
+            /*    color: #ffb400;*/
+            /*}*/
+        </style>
 <!--
 
 TemplateMo 590 topic listing
@@ -34,57 +42,49 @@ https://templatemo.com/tm-590-topic-listing
 
         <main>
 <!-- header -->
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg" style="background-color: black">
                 <div class="container">
-                    <a class="navbar-brand" href="../../../../frontend/index.html">
-                        <i class="bi-back"></i>
-                        <span>Topic</span>
+                    <a class="navbar-brand" href="index.html">
+                        <i class="bi-back" style="color: blueviolet"></i>
+                        <span style="color: blueviolet">UniHub</span>
                     </a>
 
                     <div class="d-lg-none ms-auto me-4">
                         <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
                     </div>
-    
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-    
-                    <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 226px;">
                         <ul class="navbar-nav ms-lg-5 me-lg-auto">
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="../../../../frontend/index.html#section_1">Home</a>
+                                <a style="font-size: 18px; margin: 6px; padding-right: 40px" class="nav-link click-scroll" href="/universities">Home</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="../../../../frontend/index.html#section_2">Browse Topics</a>
-                            </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="../../../../frontend/index.html#section_3">How it works</a>
+                                <a style="font-size: 18px; margin: 6px; padding-right: 40px" class="nav-link click-scroll" href="#">Blogs</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="../../../../frontend/index.html#section_4">FAQs</a>
-                            </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link click-scroll" href="../../../../frontend/index.html#section_5">Contact</a>
+                                <a style="font-size: 18px; margin: 6px" class="nav-link click-scroll" href="#">Contact</a>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-
-                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
-
-                                    <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
-                                </ul>
-                            </li>
                         </ul>
 
                         <div class="d-none d-lg-block">
-                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                            <button th:if="${session.user==null}" style="height: 46px; background-color: #80D0C7" type="submit" class="form-control"><a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
+                                        &client_id=570524258444-ridflrjec1qvuq3oidpn67cc1gm3t8i6.apps.googleusercontent.com&approval_prompt=force" class="btn btn-soft-primary">Login   <img width="20px" src="https://colorlib.com/etc/lf/Login_v9/images/icons/icon-google.png" alt="alt"/></a></button>
+                            <div style="display: flex">
+                                <button th:if="${session.user!=null}"  type="button" class="btn btn-pills btn-soft-primary dropdown-toggle p-0"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                        th:src="@{${session.user.avatarUrl}}" width="44px" class="avatar avatar-ex-small rounded-circle" alt="">
+                                </button>
+                                <button th:if="${session.user!=null}" type="submit" class="form-control" onclick="window.location.href='/logout'" style="background-color: #80D0C7">Logout</button>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </nav>
@@ -98,15 +98,15 @@ https://templatemo.com/tm-590-topic-listing
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="../../../../frontend/index.html">Homepage</a></li>
-                                    <li class="breadcrumb-item"><a href="../../../../frontend/review.html">review các trường đại học</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Trường đại học FPT</li>
+<!--                                    <li class="breadcrumb-item"><a href="../../../../frontend/review.html">review các trường đại học</a></li>-->
+                                    <li class="breadcrumb-item active" aria-current="page" th:text="${university.name}"></li>
                                 </ol>
                             </nav>
 
-                            <h2 class="text-white" style="display: flex; flex-wrap: wrap">Trường đại học FPT</h2>
+                            <h2 class="text-white" style="display: flex; flex-wrap: wrap" th:text="${university.name}">Trường đại học FPT</h2>
                             <div>
-                                <button class="total" style="cursor: auto;">
-                                    Total: 4.5/5 <i class="fa-solid fa-star" style="color: red;"></i>
+                                <button class="total" style="cursor: auto;" th:text="'Total:'+${voteAve}+' /5'">
+                                    <i class="fa-solid fa-star" style="color: red;"></i>
                                 </button>
                             </div>
                             <div class="d-flex align-items-center mt-5">
@@ -137,98 +137,81 @@ https://templatemo.com/tm-590-topic-listing
                             <div class="vote">
                                 <div class="item">
                                     <div style="display: inline-block; width: 200px">Chất lượng giảng dạy</div> 
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span class="item-voted">
-                                        Total: 4.5/5 <i class="fa-solid fa-star" style="color: red;"></i>
+                                    <span class="item-voted" th:text="'Total:'+${vote.get(0)[2]}+' /5'">
+                                         <i class="fa-solid fa-star" style="color: red;"></i>
                                     </span>
                                 </div>
                                 <div class="item">
                                     <div style="display: inline-block; width: 200px">Cơ sở vật chất</div> 
                                     
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span class="item-voted">
-                                        Total: 4.5/5 <i class="fa-solid fa-star" style="color: red;"></i>
+                                    <span class="item-voted" th:text="'Total:'+${vote.get(1)[2]}+' /5'">
+                                        <i class="fa-solid fa-star" style="color: red;"></i>
                                     </span>
                                 </div>
                                 <div class="item">
                                     <div style="display: inline-block; width: 200px">Hài lòng học phí</div> 
                                     
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
                                     <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span class="item-voted">
-                                        Total: 4.5/5 <i class="fa-solid fa-star" style="color: red;"></i>
+                                    <span class="item-voted" th:text="'Total:'+${vote.get(2)[2]}+' /5'">
+                                       <i class="fa-solid fa-star" style="color: red;"></i>
                                     </span>
                                 </div>
                                 <div class="item">
                                     <div style="display: inline-block; width: 200px">Môi trường học tập</div> 
                                      
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span class="item-voted">
-                                        Total: 4.5/5 <i class="fa-solid fa-star" style="color: red;"></i>
+                                    <span class="item-voted" th:text="'Total:'+${vote.get(0)[2]}+' /5'">
+                                        <i class="fa-solid fa-star" style="color: red;" ></i>
                                     </span>
                                 </div>
                                 <div class="item">
                                     <div style="display: inline-block; width: 200px">Cơ hội việc làm</div> 
                                      
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span class="item-voted">
-                                        Total: 4.5/5 <i class="fa-solid fa-star" style="color: red;"></i>
+                                    <span class="item-voted" th:text="'Total:'+${vote.get(1)[2]}+' /5'">
+                                        <i class="fa-solid fa-star" style="color: red;"></i>
                                     </span>
                                 </div>
                                 <div class="item">
                                     <div style="display: inline-block; width: 200px">Thủ tục hành chính</div> 
                                      
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
+                                    <i class="fa-solid fa-star color-active"></i>
                                     <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <span class="item-voted">
-                                        Total: 4.5/5 <i class="fa-solid fa-star" style="color: red;"></i>
+                                    <span class="item-voted" th:text="'Total:'+${vote.get(2)[2]}+' /5'">
+                                        <i class="fa-solid fa-star" style="color: red;"></i>
                                     </span>
                                 </div>
-                                <button class="total" style="cursor: auto;">
-                                    Total: 4.5/5 <i class="fa-solid fa-star" style="color: red;"></i>
+                                <button class="total" style="cursor: auto;" th:text="'Total:'+${voteAve}+' /5'">
+                                    <i class="fa-solid fa-star" style="color: red;"></i>
                                 </button>
                             </div>
-                            <p>So how can you stand out, do something unique and interesting, build an online business, and get paid enough to change life. Please visit TemplateMo website to download free website templates.</p>
+                                <p th:text="${university.description}"></p>
 
-                            <p><strong>There are so many ways to make money online</strong>. Below are several platforms you can use to find success. Keep in mind that there is no one path everyone can take. If that were the case, everyone would have a million dollars.</p>
-
-                            <blockquote>
-                                Freelancing your skills isn’t going to make you a millionaire overnight.
-                            </blockquote>
-
-                            <div class="row my-4">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <img src="../static/css/images/businesswoman-using-tablet-analysis.jpg" class="topics-detail-block-image img-fluid">
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-12 mt-4 mt-lg-0 mt-md-0">
-                                    <img src="../static/css/images/colleagues-working-cozy-office-medium-shot.jpg" class="topics-detail-block-image img-fluid">
-                                </div>
-                            </div>
-
-                            <p>Most people start with freelancing skills they already have as a side hustle to build up income. This extra cash can be used for a vacation, to boost up savings, investing, build business.</p>
                         </div>
 
                     </div>
@@ -241,12 +224,13 @@ https://templatemo.com/tm-590-topic-listing
                     <div class="row justify-content-center">
 
                         <div class="col-lg-7 col-12 subscribe-form-wrap d-flex justify-content-center align-items-center">
-                            <form class="custom-form subscribe-form" action="#" method="post" role="form">
+                            <form class="custom-form subscribe-form" action="vote" method="post" role="form">
                                 <div class="warning">
                                     Bạn phải là sinh viên của trường mới được đánh giá trường!
                                 </div>
                                 <div class="accept">
                                     <div class="vote">
+                                        <input type="hidden" name="id" th:value="${university.id}">
                                         <div class="item">
                                             <div style="display: inline-block; width: 200px">Chất lượng giảng dạy</div> 
                                             <i class="fa-solid fa-star"></i>
@@ -254,6 +238,7 @@ https://templatemo.com/tm-590-topic-listing
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
+                                            <input type="hidden" name="input0">
                                         </div>
                                         <div class="item">
                                             <div style="display: inline-block; width: 200px">Cơ sở vật chất</div> 
@@ -263,6 +248,7 @@ https://templatemo.com/tm-590-topic-listing
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
+                                            <input type="hidden" name="input1">
                                         </div>
                                         <div class="item">
                                             <div style="display: inline-block; width: 200px">Hài lòng học phí</div> 
@@ -272,6 +258,7 @@ https://templatemo.com/tm-590-topic-listing
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
+                                            <input type="hidden" name="input2">
                                         </div>
                                         <div class="item">
                                             <div style="display: inline-block; width: 200px">Môi trường học tập</div> 
@@ -281,6 +268,7 @@ https://templatemo.com/tm-590-topic-listing
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
+                                            <input type="hidden" name="input3">
                                         </div>
                                         <div class="item">
                                             <div style="display: inline-block; width: 200px">Cơ hội việc làm</div> 
@@ -290,6 +278,7 @@ https://templatemo.com/tm-590-topic-listing
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
+                                            <input type="hidden" name="input4">
                                         </div>
                                         <div class="item">
                                             <div style="display: inline-block; width: 200px">Thủ tục hành chính</div> 
@@ -299,10 +288,12 @@ https://templatemo.com/tm-590-topic-listing
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
+                                            <input type="hidden" name="input5">
                                         </div>
-                                        <button>
+                                        <button type="submit">
                                             Vote
                                         </button>
+                                        <h6 style="color:red; text-align: center" th:text="${err}"></h6>
                                     </div>  
                                 </div>
                             </form>
@@ -311,6 +302,80 @@ https://templatemo.com/tm-590-topic-listing
                     </div>
                 </div>
             </section>
+            <!-- comment -->
+            <div class="cmt">
+                <div class="container mb-5 mt-5">
+
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="text-center mb-5" style="margin: auto">
+                                    Nested comment section
+                                </h3>
+                                <h6 style="color:red; text-align: center" th:text="${errmsg}"></h6>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div th:each="cmt : ${comment}">
+                                        <div class="media">
+                                            <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" th:src="@{${cmt.user.avatarUrl}}" />
+                                            <div class="media-body">
+                                                <div class="row">
+                                                    <div class="col-8 d-flex">
+                                                        <h5 th:text="${cmt.user.name}"></h5>
+                                                        <span th:text="    ${cmt.createAt}"></span>
+                                                    </div>
+
+                                                    <div class="col-4">
+
+                                                        <div class="pull-right reply">
+
+                                                            <button><i class="fa fa-reply"></i> reply</button>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <p th:text="${cmt.content}"></p>
+                                                <form action="comment" method="post">
+                                                <div class="me-reply mt-4">
+<!--                                                    <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" th:src="@{${cmt.user.avatarUrl}}" />-->
+                                                    <div class="me-avatar mr-2"></div>
+                                                    <input type="hidden" name="parentCommentId" th:value="${cmt.id}">
+                                                    <input type="hidden" name="universityId" th:value="${university.id}">
+                                                    <button style="float:right" type="submit" class="form-control">Post</button>
+                                                    <textarea required="" name="content" id="" cols="100%" rows="5"></textarea>
+                                                </div>
+                                                </form>
+
+                                            <div th:each="subcmt : ${cmt.subComment}">
+                                                <div class="media mt-4">
+                                                    <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" th:src="@{${subcmt.user.avatarUrl}}" /></a>
+                                                    <div class="media-body">
+
+                                                        <div class="row">
+                                                            <div class="col-12 d-flex">
+                                                                <h5 th:text="${subcmt.user.name}"></h5>
+                                                                <span th:text="    ${subcmt.createAt}"></span>
+                                                            </div>
+                                                        </div>
+                                                        <p th:text="${subcmt.content}"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            </div>
+                                        </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 		
         <footer class="site-footer section-padding">
@@ -407,13 +472,21 @@ https://templatemo.com/tm-590-topic-listing
                 input.value = n + 1;
                 console.log(input.value);
             }
+            const btns = document.querySelectorAll(".cmt button");
+            btns.forEach((btn, index) => {
+                btn.addEventListener("click", (btn) => {
+                    const parent = btn.target.parentElement.parentElement.parentElement.parentElement;
+                    parent.querySelector(".me-reply").style.display = "block";
+                });
+            })
         </script>
 
+
         <!-- JAVASCRIPT FILES -->
-        <script src="../../../../frontend/js/jquery.min.js"></script>
-        <script src="../../../../frontend/js/bootstrap.bundle.min.js"></script>
-        <script src="../../../../frontend/js/jquery.sticky.js"></script>
-        <script src="../../../../frontend/js/custom.js"></script>
-        <script src="../../../../frontend/js/review-detail.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/review-detail.js"></script>
     </body>
 </html>
