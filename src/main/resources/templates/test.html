@@ -1,0 +1,17 @@
+<div th:each="vote, iterStat : ${votes}">
+    <div>
+        <p th:text="${'Vote score: ' + #numbers.formatInteger(#numbers.round(vote[2]))}"></p>
+        <p>
+            Active stars:
+            <span th:each="starNum : ${#numbers.sequence(1, #numbers.round(vote[2]))}">
+                <i class="fa-solid fa-star color-active"></i>
+            </span>
+        </p>
+        <p>
+            Inactive stars:
+            <span th:each="starNum : ${#numbers.sequence(#numbers.round(vote[2]) + 1, 5)}">
+                <i class="fa-solid fa-star"></i>
+            </span>
+        </p>
+    </div>
+</div>
